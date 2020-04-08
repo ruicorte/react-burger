@@ -1,7 +1,16 @@
 .App {
-  text-align: center;
+    text-align: center;
+    margin: 10px 15px;
+    border: 1px solid #eee;
 }
 
+p {
+    color: orange;
+    //font-size: 1.2em;
+}
+
+
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +45,4 @@
     transform: rotate(360deg);
   }
 }
+ */
