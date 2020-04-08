@@ -8,7 +8,7 @@ class BurgerIngredient extends Component {
 
         switch (this.props.type) {
             case ('bread-bottom'):
-                ingrediente = <div className={styles.BreadBottom}></div>;
+                ingredient = <div className={styles.BreadBottom}></div>;
                 break;
             case ('bread-top'):
                 ingredient = <div className={styles.BreadTop}>
@@ -32,10 +32,10 @@ class BurgerIngredient extends Component {
         }
 
         return ingredient;
-    };
+    }
 }
 
-BurgerIngredient.PropTypes = {
+BurgerIngredient.propTypes = {
     type: PropTypes.string.isRequired
 };
 
