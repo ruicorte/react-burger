@@ -13,10 +13,10 @@
     @media (min-width: 500px) {
         display: none;
     }
-    .Open {
+    &.Open {
         transform: translateX(0);
     }
-    .close {
+    &.close {
         transform: translateX(-100%);
     }
 }
