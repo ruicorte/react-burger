@@ -3,7 +3,9 @@ import styles from './NavigationItem.module.scss';
 
 const navigationItem = (props) => (
     <li className={styles.NavigationItem}>
-        <a href={props.link} className={props.active ? styles.Active : null}>{props.children}</a>
+        <a
+            href={props.link}
+            className={props.active ? styles.Active : null}>{props.children}</a>
     </li>
 );
 
