@@ -2,10 +2,10 @@ import React from 'react';
 import Aux from '../../../hoc/Auxiliary';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = props => {
+const orderSummary = (props) => {
+
     const ingredientSummary = Object.keys(props.ingredients)
         .map(ingKey => <li key={ingKey}><span style={{ textTransform: 'capitalize' }}>{ingKey}</span>: {props.ingredients[ingKey]}</li>);
-
     return (
         <Aux>
             <h3>Your order</h3>
@@ -25,6 +25,8 @@ const orderSummary = props => {
             >Continue</Button>
         </Aux>
     );
-};
+
+}
+
 
 export default orderSummary;
