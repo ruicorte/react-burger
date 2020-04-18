@@ -11,7 +11,7 @@ const checkoutSummary = (props) => {
             <h1>hope it tastes well!</h1>
             <div style={{
                 width: '100%',
-                // height: '300px',
+                // height: '300px', 
                 margin: 'auto',
             }}>
                 <Burger ingredients={props.ingredients} />
