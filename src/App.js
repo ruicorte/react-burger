@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styles from './App.module.scss';
 import Layout from './containers/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+import Checkout from './containers/Checkout/Checkout';
 
 class App extends Component {
   /*   
@@ -20,6 +21,7 @@ class App extends Component {
       <div className={styles.App}>
         <Layout>
           <BurgerBuilder />
+          <Checkout />
           {/* {this.state.show ? <BurgerBuilder /> : null} */}
         </Layout>
       </div>
