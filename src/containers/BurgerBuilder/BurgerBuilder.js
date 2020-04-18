@@ -40,6 +40,7 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         axios.get('https://burger-react-9d88d.firebaseio.com/ingredients.json')
             .then(response => {
                 this.setState({ ingredients: response.data });
@@ -108,7 +109,7 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        this.setState({
+        /* this.setState({
             loading: true,
         });
         const order = {
@@ -139,7 +140,9 @@ class BurgerBuilder extends Component {
                     loading: false,
                     purchasing: false,
                 });
-            });
+            }); */
+        // console.log('burger builder continue',this.props.history);
+        this.props.history.push('/checkout');
     }
 
     render() {
