@@ -4,6 +4,8 @@ import axios from '../../../axios-orders';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
+import Input from '../../../components/UI/Input/Input';
+
 import styles from './ContactData.module.scss';
 
 class ContactData extends Component {
@@ -60,6 +62,7 @@ class ContactData extends Component {
     render() {
         let form = (
             <form>
+                <Input label={'test label'} inputType='textarea' />
                 <input type="text" name="name" placeholder="your name" />
                 <input type="email" name="email" placeholder="your email" />
                 <input type="text" name="street" placeholder="street" />
