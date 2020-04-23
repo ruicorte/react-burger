@@ -4,15 +4,27 @@ import styles from './Input.module.scss';
 const input = (props) => {
 
     let inputElement = null;
-    switch (props.inputType) {
+    switch (props.elementType) {
         case ('input'):
-            inputElement = <input className={styles.inputElement} {...props} />;
+            inputElement = <input
+                className={styles.InputElement}
+                {...props.element.config}
+                value={props.value}
+            />;
             break;
         case ('textarea'):
-            inputElement = <textarea {...props} />
+            inputElement = <textarea
+                className={styles.InputElement}
+                {...props.elementConfig}
+                value={props.value}
+            />
             break;
         default:
-            inputElement = <input {...props} />
+            inputElement = <input
+                className={styles.InputElement}
+                {...props.elementConfig}
+                value={props.value}
+            />
     }
 
     return (
