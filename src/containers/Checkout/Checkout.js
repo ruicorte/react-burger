@@ -9,9 +9,9 @@ class Checkout extends Component {
         totalPrice: 0,
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         const query = new URLSearchParams(this.props.location.search);
-        const ingredients = {};
+        const ingredients = {}; 
         let price = 0;
         for (let param of query.entries()) {
             if (param[0] === 'price') {
