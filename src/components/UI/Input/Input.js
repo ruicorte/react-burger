@@ -4,7 +4,6 @@ import styles from './Input.module.scss';
 const input = (props) => {
 
     let inputElement = null;
-
     const inputClasses = [styles.InputElement];
 
     if (props.invalid && props.shouldValidate && props.touched) {
@@ -54,4 +53,4 @@ const input = (props) => {
     )
 };
 
-export default input
+export default input;
