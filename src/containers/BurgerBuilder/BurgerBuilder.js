@@ -109,7 +109,7 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        
+
         // console.log('burger builder continue',this.props.history);
 
         const queryParams = [];
