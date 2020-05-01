@@ -13,7 +13,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 // import * as actionTypes from '../../store/actions/actionTypes';
 
-import * as actionCreators from '../../store/actions/burgerBuilder';
+import * as actions from '../../store/actions/'; // index ommited
 
 class BurgerBuilder extends Component {
 
@@ -108,10 +108,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        // onIngredientAdded: (ingName) => dispatch({ type: actionTypes.ADD_INGREDIENT, ingredientName: ingName }),
-        onIngredientAdded: (ingName) => dispatch(actionCreators.addIngredient(ingName)),
-        // onIngredientRemoved: (ingName) => dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName }),
-        onIngredientRemoved: (ingName) => dispatch(actionCreators.removeIngredient(ingName)),
+        onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
+        onIngredientRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
     }
 }
 
