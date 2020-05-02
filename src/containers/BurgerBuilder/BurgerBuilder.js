@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import axios from '../../axios-orders';
 import Aux from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
+
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import axios from '../../axios-orders';
 
 import * as actions from '../../store/actions/'; // index ommited
 
@@ -17,8 +18,12 @@ class BurgerBuilder extends Component {
 
     state = {
         purchasing: false,
-        loading: false,
-        error: false,
+        // loading: false,
+        // error: false,
+    }
+
+    componentDidMount() {
+        this.props.onInitIngredients();
     }
 
     updatePurchaseState(ingredients) {
@@ -40,16 +45,6 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        /*         const queryParams = [];
-                for (let param in this.state.ingredients) {
-                    queryParams.push(encodeURIComponent(param) + '=' + encodeURIComponent(this.state.ingredients[param]));
-                }
-                queryParams.push('price=' + this.props.totalPrice);
-                const queryString = queryParams.join('&'); */
-        /*         this.props.history.push({
-                    pathname: '/checkout',
-                    search: '?' + queryString
-                }); */
         this.props.history.push('/checkout');
     }
 
@@ -61,7 +56,7 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
         let orderSummary = null;
-        let burger = this.state.error ? <p>Ingredients can't be loaded</p> : <Spinner />;
+        let burger = this.props.error ? <p>Ingredients can't be loaded</p> : <Spinner />;
         if (this.props.ings) {
             burger = (
                 <Aux>
@@ -83,9 +78,9 @@ class BurgerBuilder extends Component {
                 purchaseContinued={this.purchaseContinueHandler}
             />;
         }
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
-        }
+        // if (this.state.loading) {
+        //     orderSummary = <Spinner />;
+        // }
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler} >
@@ -101,6 +96,7 @@ const mapStateToProps = state => {
     return {
         ings: state.ingredients,
         totalPrice: state.totalPrice,
+        error: state.error,
     };
 }
 
@@ -108,7 +104,9 @@ const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
         onIngredientRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
+        onInitIngredients: () => dispatch(actions.initIngredients())
     }
 }
 
+// export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
